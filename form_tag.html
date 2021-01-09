@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>registration</title>
+</head>
+<body>
+    <form action="example.php" method="POST">
+        <p>-Please register-</p>
+        <lable for="first_name">First Name:</lable>
+        <input type="text" id="first_name" name="first_name">
+        <br>
+        <lable for="last_name">Last Name:</lable>
+        <input type="text" id="last_name" name="last_name">
+        <br>
+        <lable for="password">Password:</lable>
+        <input type="password" id="password" name="password">
+        <br>
+        <lable for="date">date:</lable>
+        <input type="date" id="date" name="date">
+        
+        <p>-Select gender-</p>
+        <lable for="male">Male:</lable>
+        <input type="radio" id="male" name="male">
+        <lable for="female">Female:</lable>
+        <input type="radio" id="female" name="female">
+        <lable for="decline">Prefer not to say:</lable>
+        <input type="radio" id="decline" name="decline">
+        <br>
+        <br>
+        <input type="submit" id="submit" value="Submit">
+        
+        <p>-Self introduction-</p>
+        <textarea name="description" cols="50" rows="20" placeholder="please introduce yourself"></textarea>
+        
+        <p>-Select favorite sport-</p>
+        <select name="favorite_sport">
+            <option value="basketball">Basketball</option>
+            <option value="baseball">Baseball</option>
+            <option value="football">Football</option>
+        </select>
+    
+        <p>-Select favorite team-</p>
+        <lable for="bulls">Bulls:</lable>
+        <input type="checkbox" id="bulls" name="bulls">
+        <lable for="cubs">Cubs:</lable>
+        <input type="checkbox" id="cubs" name="cubs">
+        <lable for="bears">Bears:</lable>
+        <input type="checkbox" id="bears" name="bears">
+    
+    </form>
+
+    <!-- <input> with these values in the "type" attribute:
+text
+password
+date
+radio
+submit
+<textarea>
+<select> -->
+</body>
+</html>
