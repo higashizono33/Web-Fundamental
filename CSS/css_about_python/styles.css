@@ -1,0 +1,207 @@
+/* body * {
+    outline: 1px dotted red;
+} */
+
+.wrapper {
+    width: 970px;
+    background: linear-gradient(360deg, rgba(48,119,186,1) 0%, rgb(4, 106, 165) 22%);
+}
+
+.header {
+    display: flex;
+}
+
+.header img {
+    width: 30%;
+    margin: 20px;
+}
+
+.header h6 {
+    margin: 0;
+    padding-right: 20px;
+    padding-bottom: 5px;
+    text-align: right;
+    color: white;
+    font-weight: normal;
+}
+
+.header h6 > a {
+    color: rgb(235, 184, 55);
+}
+
+.header form {
+    margin-left: auto;
+    padding: 10px;
+}
+
+.search {
+    padding: 10px 30px;
+    border-radius: 5px;
+    background-color: rgb(73, 71, 71);
+    box-shadow: 3px 3px rgb(34, 33, 33);
+}
+
+.search input {
+    font-size: 13px;
+    width: 120px;
+    height: 20px;
+    text-align: center;
+    margin-right: 5px;
+}
+
+button {
+    font-size: 13px;
+    color: white;
+    background-color: rgb(16, 75, 201);
+    border-radius: 5px;
+}
+
+.navbar {
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    color: white;
+    width: calc(100% - 40px);
+    height: 50px;
+    margin: 0 auto;
+    padding: 0;
+    background-color: rgb(32, 138, 199);
+    display: flex;
+    justify-content: space-evenly;
+    list-style: none;
+    align-items: center;
+    border-radius: 5px;
+    box-shadow: 3px 3px rgb(34, 33, 33);
+}
+
+.main {
+    display: flex;
+}
+
+.menu{
+    margin: 20px;
+    padding-left: 40px;
+    text-align: center;
+    white-space: nowrap;
+    list-style: none;
+}
+
+.menu li::before {
+    color: rgb(235, 184, 55);
+    content: ">>";
+    display: inline-block;
+    font-size: 10px;
+    padding-right: 5px;
+}
+
+.menu li {
+    padding: 5px;
+}
+
+.menu li a {
+    color: white;
+}
+
+.about {
+    margin: 20px;
+    padding-right: 30px;
+}
+
+.about p {
+    font-size: 13px;
+    padding-right: 20px;
+    margin-top: 0;
+    text-align: center;
+    color: white;
+}
+
+.about ul {
+    font-size: 20px;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    font-style: italic;
+    color: rgb(235, 184, 55);
+    list-style: none;
+}
+
+.about ul li {
+    margin-bottom: 5px;
+}
+
+.about h4 {
+    margin-top: 10px;
+    font-weight: normal;
+    text-align: center;
+    color: white;
+}
+
+.direction {
+    display: flex;
+    justify-content: center;
+    background-color: white;
+}
+
+.start, .app {
+    margin: 20px 20px 0 20px;
+    width: calc(50% - 60px);
+    border-top: 5px solid rgb(4, 106, 165);
+}
+
+.start h4, .app h4 {
+    margin: 5px 0;
+    font-weight: normal;
+    text-align: center;
+}
+
+.start p, .app p {
+    font-size: 13px;
+    padding: 0 50px;
+    margin-top: 0;
+    text-align: center;
+}
+
+.start ul, .app ul {
+    font-size: 13px;
+    margin: 20px auto;
+    text-align: center;
+    width: 250px;
+    padding-right: 15px;
+}
+
+.start li, .app li {
+    margin-bottom: 10px;
+}
+
+.start li a, .app li a {
+    color: rgb(32, 138, 199);
+    text-decoration: none;
+}
+
+.app p span{
+    color: rgb(32, 138, 199);
+}
+
+.footer {
+    margin-bottom: 20px;
+}
+
+.footer ul {
+    padding: 0;
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    list-style: none;
+}
+
+.footer ul li {
+    margin-left: 20px;
+    color: white;
+    opacity: 0.5;
+}
+
+.footer h6 {
+    color: white;
+    opacity: 0.5;
+    margin: 0;
+    text-align: center;
+}

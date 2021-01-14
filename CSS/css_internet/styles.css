@@ -1,0 +1,247 @@
+/* body * {
+    outline: 1px dotted red;
+} */
+
+.wrapper {
+    width: 970px;
+    margin: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    background: rgb(255,255,255);
+    background: linear-gradient(360deg, rgba(255,255,255,1) 55%, rgba(232,232,232,1) 95%);
+}
+
+.red {
+    color: red;
+}
+
+.steelblue {
+    color: steelblue;
+}
+
+.skyblue {
+    color: skyblue;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+header {
+    background-color: white;
+}
+
+header img {
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    top: 10px;
+}
+
+header h1 {
+    margin: 0;
+    padding-top: 20px;
+    position: relative;
+    left: 80px;
+    font-size: 2.5em;
+    font-weight: normal;
+}
+
+header h2 {
+    margin: 0;
+    padding: 10px;
+    width: 950px;
+    font-size: 1.5em;
+    font-weight: normal;
+    color: white;
+    background-color:steelblue;
+}
+
+.main_container {
+    display: flex;
+}
+
+.left {
+    width: calc(25% - 20px);
+}
+
+.left h4 {
+    margin-bottom: 10px;
+}
+
+.left p{
+    margin-top: 0;
+    font-weight: bold;
+}
+
+#video {
+    width: 100%;
+    margin-bottom: 5px;
+    background-color: steelblue;
+    height: 40px;
+    color: white;
+    border-radius: 5px;
+    box-shadow: 3px 3px rgb(180, 179, 179);
+    border: none;
+}
+
+#resources {
+    width: 100%;
+    margin-bottom: 20px;
+    background-color: rgb(243, 167, 53);
+    height: 40px;
+    color: white;
+    border-radius: 5px;
+    box-shadow: 3px 3px rgb(180, 179, 179);
+    border: none;
+}
+
+.ad {
+    margin-top: 20px;
+    border-top: 1.5px solid grey;
+    padding-top: 40px;
+    position: relative;
+}
+
+.ad p {
+    position: absolute;
+    top: 20px;
+    padding: 20px;
+    color: white;
+    text-align: center;
+    font-size: 1.4em;
+    font-weight: normal;
+}
+
+.ad img {
+    width: 100%;
+    height: 300px;
+}
+
+#ninja {
+    width: 70px;
+    height: 100px;
+    position: absolute;
+    top: 130px;
+    left: 75px;
+}
+
+.ad button {
+    margin-left: 20px;
+    padding: 5px;
+    position: absolute;
+    top: 240px;
+    left: 0;
+    background-color: rgba(16, 180, 209, 0.959);
+    border-radius: 5px;
+    color: white;
+    width: calc(100% - 40px);
+}
+
+.right {
+    width: calc(75% - 40px);
+    margin-left: 40px;
+    position: relative;
+}
+
+.title {
+    border-top: 1.5px solid grey;
+}
+
+#home {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 10px;
+}
+
+.dsn {
+    color: steelblue;
+    position: absolute;
+    top: 12px;
+    left: 25px;
+}
+
+.contact {
+    display: flex;
+    margin-left: 525px;
+}
+
+.contact ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.contact ul li{
+    margin-bottom: 5px;
+    font-size: 8px;
+    text-align: center;
+}
+
+.contact span{
+    font-size: 20px;
+    color: skyblue;
+}
+
+#phone {
+    width: 30px;
+    height: 30px;
+    margin-top: 10px;
+    margin-right: 5px;
+}
+
+.right h3 {
+    margin: 5px 0;
+    color: steelblue;
+}
+
+.right p {
+    margin-top: 0;
+    margin-bottom: 5px;
+}
+
+
+.right ul {
+    margin: 0;
+    font-size: 0.8em;
+}
+
+.right li {
+    margin-bottom: 10px;
+}
+
+#client_server {
+    width: 280px;
+    height: 100px;
+    margin: 20px 200px;
+}
+
+.list_nums {
+    list-style-type: decimal;
+}
+
+.languages {
+    display: flex;
+    margin-top: 20px;
+    border-top: 5px solid rgb(23, 135, 226);
+    border-left: 5px solid rgb(23, 135, 226);
+    border-right: 5px solid rgb(23, 135, 226);
+    box-shadow: 3px 0 rgb(167, 167, 167);
+}
+
+.languages ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.languages a {
+    color: skyblue;
+    text-decoration: none;
+}
+
+#icon {
+    width: 110px;
+    height: 100px;
+    margin-right: 20px;
+}
