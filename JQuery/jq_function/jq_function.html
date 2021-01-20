@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My jQuery basic assignment</title>
+    <style>
+        section {
+            width: 450px;
+            border-bottom: 3px solid grey;
+            display: flex;
+        }
+        button {
+            width: 100px;
+            height: 30px;
+            margin-top: 50px;
+            box-shadow: 1px 1px rgb(190, 185, 185);
+        }
+        div {
+            display: inline-block;
+            text-align: center;
+            margin-left: 50px;
+        }
+
+        input {
+            margin-top: 50px;
+        }
+
+        .red {
+            color: red;
+        }
+
+    </style>
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <script>
+        $(function() {
+            $(".hide button").click(function() {
+                $(".hide div").hide();
+            });
+            $(".show button").click(function() {
+                $(".show h1").show();
+            });
+            $(".toggle button").click(function() {
+                $(".toggle div").toggle();
+            });
+            $(".slide_down button").click(function() {
+                $(".slide_down div").slideDown(3000);
+            });
+            $(".slide_up button").click(function() {
+                $(".slide_up div").slideUp();
+            });
+            $(".slide_toggle button").click(function() {
+                $(".slide_toggle div").slideToggle();
+            });
+            $(".fade_in button").click(function() {
+                $(".fade_in div").fadeIn(1000);
+            });
+            $(".fade_out button").click(function() {
+                $(".fade_out div").fadeOut(5000);
+            });
+            $(".add_class button").click(function() {
+                $(".add_class div").addClass("red");
+            });
+            $(".before button").click(function() {
+                $(".before h1").before($(".before p"));
+            });
+            $(".after button").click(function() {
+                $(".after h1").after($(".after p"));
+            });
+            $(".append button").click(function() {
+                $(".append div").append($(".append button"));
+            });
+            $(".html button").click(function() {
+                $(".html p").html("Hello World!!");
+            });
+            $(".attr button").click(function() {
+                $(".attr div").attr("style", "color: blue;");
+            });
+            $(".val button").click(function() {
+                $(".val input").val("Coding");
+            });
+            $(".text button").click(function() {
+                $(".text h1").text("Hello World!!");
+            });
+
+        });
+    </script>
+    
+</head>
+<body>
+    <section class="hide">
+        <button>Hide</button>
+        <div>
+            <h1>Hide</h1>
+            <p>Click the button to hide this paragraph</p>
+        </div>
+    </section>
+    <section class="show">
+        <button>Show</button>
+        <div>
+            <h1 style="display: none;">Show</h1>
+            <p>Click the button to show hidden word</p>
+        </div>
+    </section>
+    <section class="toggle">
+        <button>Toggle</button>
+        <div>
+            <h1>Toggle</h1>
+            <p>Click the button to toggle this paragraph</p>
+        </div>
+    </section>
+    <section class="slide_down">
+        <button>Slide Down</button>
+        <div style="display: none;">
+            <h1>Slide Down</h1>
+            <p>Click the button to Slide Down this paragraph</p>
+        </div>
+    </section>
+    <section class="slide_up">
+        <button>Slide Up</button>
+        <div>
+            <h1>Slide Up</h1>
+            <p>Click the button to Slide Up this paragraph</p>
+        </div>
+    </section>
+    <section class="slide_toggle">
+        <button>Slide Toggle</button>
+        <div style="display: none;">
+            <h1>Slide Toggle</h1>
+            <p>Click the button to Slide Toggle this paragraph</p>
+        </div>
+    </section>
+    <section class="fade_in">
+        <button>Fade In</button>
+        <div style="display: none;">
+            <h1>Fade In</h1>
+            <p>Click the button to Fade In this paragraph</p>
+        </div>
+    </section>
+    <section class="fade_out">
+        <button>Fade Out</button>
+        <div>
+            <h1>Fade Out</h1>
+            <p>Click the button to Fade Out this paragraph</p>
+        </div>
+    </section>
+    <section class="add_class">
+        <button>Add Class</button>
+        <div>
+            <h1>Add Class</h1>
+            <p>Click the button to Add Class this paragraph</p>
+        </div>
+    </section>
+    <section class="before">
+        <button>Before</button>
+        <div>
+            <h1>Before</h1>
+            <p>Click the button to put this paragraph Before h1</p>
+        </div>
+    </section>
+    <section class="after">
+        <button>After</button>
+        <div>
+            <p>Click the button to put this paragraph After h1</p>
+            <h1>After</h1>
+        </div>
+    </section>
+    <section class="append">
+        <button>Append</button>
+        <div>
+            <h1>Append</h1>
+            <p>Click the button to Append this paragraph</p>
+        </div>
+    </section>
+    <section class="html">
+        <button>HTML</button>
+        <div>
+            <h1>HTML</h1>
+            <p>Click the button to change this paragraph</p>
+        </div>
+    </section>
+    <section class="attr">
+        <button>Attr</button>
+        <div>
+            <h1>Attr</h1>
+            <p>Click the button to change this attr</p>
+        </div>
+    </section>
+    <section class="val">
+        <button>Val</button>
+        <div>
+            <input type="text">
+            <p>Click the button to input</p>
+        </div>
+    </section>
+    <section class="text">
+        <button>Text</button>
+        <div>
+            <h1>Text</h1>
+            <p>Click the button to change this Text</p>
+        </div>
+    </section>
+</body>
+</html>

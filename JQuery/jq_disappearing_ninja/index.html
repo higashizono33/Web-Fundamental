@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disappearing Ninjas</title>
+    <style>
+        section {
+            flex-wrap: wrap;
+            width: 560px;
+        }
+        img {
+            width: 100px;
+            height: 100px;
+            margin-left: 30px;
+            border: 3px solid rgb(180, 180, 180);
+        }
+        button {
+            position: absolute;
+            top: 280px;
+            width: 100px;
+            background-color: green;
+            border-radius: 5px;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <script>
+        $(function() {
+            $('#pic1').click(function() {
+                $('#pic1').hide().appendTo($('section'));
+            })
+            $('#pic2').click(function() {
+                $('#pic2').hide().appendTo($('section'));
+            })
+            $('#pic3').click(function() {
+                $('#pic3').hide().appendTo($('section'));
+            })
+            $('#pic4').click(function() {
+                $('#pic4').hide().appendTo($('section'));
+            })
+            $('#pic5').click(function() {
+                $('#pic5').hide().appendTo($('section'));
+            })
+            $('#pic6').click(function() {
+                $('#pic6').hide().appendTo($('section'));
+            })
+            $('#pic7').click(function() {
+                $('#pic7').hide().appendTo($('section'));
+            })
+            $('#pic8').click(function() {
+                $('#pic8').hide().appendTo($('section'));
+            })
+            $('button').click(function() {
+                $('img').show();
+            })
+        });
+    </script>
+</head>
+<body>
+    <section>
+        <img src="img/down1.png" id="pic1">
+        <img src="img/left1.png" id="pic2">
+        <img src="img/right1.png" id="pic3">
+        <img src="img/top1.png" id="pic4">
+        <img src="img/down2.png" id="pic5">
+        <img src="img/left2.png" id="pic6">
+        <img src="img/right2.png" id="pic7">
+        <img src="img/top2.png" id="pic8">
+    </section>
+    <button>Restore</button>
+</body>
+</html>

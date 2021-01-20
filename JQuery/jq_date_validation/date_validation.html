@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date Validation</title>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <!-- <link rel="stylesheet" href="/resources/demos/style.css"> -->
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    
+    <script>
+    $(function() {
+        $("#datepicker_1").datepicker();
+        $("#datepicker_2").datepicker();
+        $("form").submit(function() {
+            var name = $('#name').val();
+            var fromDate = $('#datepicker_1').val();
+            var toDate = $('#datepicker_2').val();
+            if($('#name').empty()) {
+                $("#name_blank").addClass("show_error");
+            } 
+            if(name) {
+                $("#name_blank").removeClass("show_error");
+            }
+            if($('#datepicker_1').empty()) {
+                $("#from_date_blank").addClass("show_error");
+            } 
+            if(fromDate) {
+                $("#from_date_blank").removeClass("show_error");
+            }
+            if($('#datepicker_1').empty()) {
+                $("#to_date_blank").addClass("show_error").html("To date can't be blank!");
+            } 
+            if(toDate) {
+                $("#to_date_blank").removeClass("show_error");
+            }
+            if(fromDate > toDate) {
+                $("#to_date_blank").addClass("show_error").html("To date can't be prior to date you leave!");
+            }
+            if(name && fromDate && toDate) {
+                if(!$("#to_date_blank").hasClass('show_error')) {
+                    alert("Thanks "+name+"! You cruise leaves on "+fromDate+
+                    " and returns on "+toDate+"!");
+                }
+            }
+            console.log($(this).serialize());
+            return false;
+        });
+    });
+    </script>
+    <style>
+        form {
+            margin-left: 100px;
+            margin-top: 20px;
+            width: 200px;
+        }
+        section {
+            margin-bottom: 20px;
+            text-align: right;
+        }
+        section input {
+            margin-bottom: 10px;
+        }
+        #name {
+            margin-top: 100px;
+        }
+        button {
+            background-color: cornflowerblue;
+            border-radius: 5px;
+            margin-left: 70px;
+        }
+        #name_blank {
+            visibility: hidden;
+            color: red;
+            position: absolute;
+            left: 350px;
+            top: 200px;
+        }
+        .show_error {
+            visibility: visible !important;
+        }
+        #from_date_blank {
+            visibility: hidden;
+            color: red;
+            position: absolute;
+            left: 350px;
+            top: 5px;
+        }
+        #to_date_blank {
+            visibility: hidden;
+            color: red;
+            position: absolute;
+            left: 350px;
+            top: 50px;
+        }
+    </style>
+    
+</head>
+</head>
+<body>
+    <form>
+        <section>
+            <p>From: 
+                <input type="text" id="datepicker_1" name="date_from">
+                <p id="from_date_blank">From date can't be blank!</p>
+            </p>
+            <p>To: 
+                <input type="text" id="datepicker_2" name="date_to">
+                <p id="to_date_blank"></p>
+            </p>
+            <p>Name: 
+                <input type="text" id="name" name="name">
+                <p id="name_blank">Your name can't be blank!</p>
+            </p>
+        </section>
+        <button type="submit">Check Date!!</button>
+    </form>
+</body>
+</html>

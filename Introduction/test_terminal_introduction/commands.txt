@@ -1,0 +1,12 @@
+vi commands.txt: to edit txt file
+python test.py: to run python file, disply obtained html
+open: to open a directory
+history: to disply command history
+find . -type f -print: to disply files under current directory
+find . -type d -print: to disply directory under current
+find . −name "index" −print -type f
+grep "commands" *
+ps aux: to disply all app in process
+tail -n 1 commands.txt
+uname -a
+uname -v

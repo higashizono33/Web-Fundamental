@@ -1,0 +1,66 @@
+Last login: Mon Jan 18 21:45:23 on ttys000
+(base) takashi@Keis-Air ~ % cd /Users/takashi/Desktop/basic_repo 
+(base) takashi@Keis-Air basic_repo % git init
+Initialized empty Git repository in /Users/takashi/Desktop/basic_repo/.git/
+(base) takashi@Keis-Air basic_repo % git add .
+(base) takashi@Keis-Air basic_repo % git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+	new file:   index.html
+
+(base) takashi@Keis-Air basic_repo % git commit -m 'new html file'
+[master (root-commit) 3ad847f] new html file
+ 1 file changed, 11 insertions(+)
+ create mode 100644 index.html
+(base) takashi@Keis-Air basic_repo % git log
+commit 3ad847f45db5c5c8f4cb26816518db2f24ae09a2 (HEAD -> master)
+Author: higashizono33 <takashizono@gmail.com>
+Date:   Mon Jan 18 22:55:50 2021 -0600
+
+    new html file
+(base) takashi@Keis-Air basic_repo % git remote add origin https://github.com/higashizono33/basic_repo.git
+(base) takashi@Keis-Air basic_repo % git push origin master
+Enumerating objects: 3, done.
+Counting objects: 100% (3/3), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 378 bytes | 378.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0)
+To https://github.com/higashizono33/basic_repo.git
+ * [new branch]      master -> master
+(base) takashi@Keis-Air basic_repo % git init                     
+Reinitialized existing Git repository in /Users/takashi/Desktop/basic_repo/.git/
+(base) takashi@Keis-Air basic_repo % git add .                    
+(base) takashi@Keis-Air basic_repo % git commit -m 'new css and js file' 
+[master 6b24019] new css and js file
+ 2 files changed, 4 insertions(+)
+ create mode 100644 main.js
+ create mode 100644 styles.css
+(base) takashi@Keis-Air basic_repo % git log
+commit 6b240196dd18094da280d82f5780981c4c377627 (HEAD -> master)
+Author: higashizono33 <takashizono@gmail.com>
+Date:   Mon Jan 18 23:03:10 2021 -0600
+
+    new css and js file
+
+commit 3ad847f45db5c5c8f4cb26816518db2f24ae09a2 (origin/master)
+Author: higashizono33 <takashizono@gmail.com>
+Date:   Mon Jan 18 22:55:50 2021 -0600
+
+    new html file
+(base) takashi@Keis-Air basic_repo % git remote add origin https://github.com/higashizono33/basic_repo.git
+fatal: remote origin already exists.
+(base) takashi@Keis-Air basic_repo % git push origin master
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (4/4), 374 bytes | 374.00 KiB/s, done.
+Total 4 (delta 0), reused 0 (delta 0)
+To https://github.com/higashizono33/basic_repo.git
+   3ad847f..6b24019  master -> master
+(base) takashi@Keis-Air basic_repo % 
