@@ -2,13 +2,9 @@
     outline: 1px dotted red;
 } */
 
-p {
-    text-align: justify;
-}
-
 .wrapper {
     width: 970px;
-    background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(71,50,83,1) 90%);
+    background: radial-gradient(circle, rgba(112,90,99,1) 50%, rgba(31,14,18,1) 90%);
 }
 
 .header {
@@ -52,17 +48,21 @@ p {
     color: white;
     margin: 0;
     padding: 10px;
-    background: linear-gradient(360deg, rgba(164,160,160,1) 0%, rgba(93,92,92,1) 50%, rgba(185,185,185,1) 100%);
+    background: linear-gradient(360deg, rgba(164,160,160,1) 0%, rgba(136,133,147,1) 50%, rgba(185,185,185,1) 100%);
 }
 
 .about p {
-    margin-left: 10px;
-    margin-right: 10px;
+    margin-left: 11px;
+    margin-right: 11px;
+    margin-bottom: 10px;
+    font-size: 17px;
 }
 
 .about a {
-    margin-left: 10px;
-    margin-right: 10px;
+    margin-left: 11px;
+    margin-right: 11px;
+    font-size: 17px;
+    color: black;
 }
 
 .main_container {
@@ -84,7 +84,8 @@ p {
     color: white;
     margin: 0px;
     padding: 10px;
-    background: linear-gradient(360deg, rgba(164,160,160,1) 0%, rgba(93,92,92,1) 50%, rgba(185,185,185,1) 100%);    color: white;
+    background: linear-gradient(360deg, rgba(164,160,160,1) 0%, rgba(136,133,147,1) 50%, rgba(185,185,185,1) 100%);    
+    color: white;
 }
 
 .content > img {
@@ -95,6 +96,7 @@ p {
     height: 200px;
     margin: 0;
     padding: 10px;
+    text-align: justify;
 }
 
 .content h4 {
@@ -102,12 +104,14 @@ p {
     color: white;
     margin: 0px;
     padding: 10px;
-    background: linear-gradient(360deg, rgba(164,160,160,1) 0%, rgba(93,92,92,1) 50%, rgba(185,185,185,1) 100%);    color: white;
+    background: linear-gradient(360deg, rgba(164,160,160,1) 0%, rgba(136,133,147,1) 50%, rgba(185,185,185,1) 100%);
+    color: white;
 }
 
 .icon_container {
     display: flex;
     flex-wrap: wrap;
+    padding: 0 7px 0 7px;
 }
 
 .icon_container img {
@@ -138,11 +142,13 @@ p {
 
 .contact {
     margin: 10px auto;
+    padding-top: 10px;
     text-align: center;
 }
 
 .icon {
     margin-bottom: 20px;
+    padding-bottom: 5px;
     display: flex;
     justify-content: center;
     align-items: center;
