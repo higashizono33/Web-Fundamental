@@ -3,8 +3,9 @@
 } */
 
 .wrapper {
+    margin: 20px 0 0 20px;
     width: 970px;
-    background: linear-gradient(360deg, rgba(48,119,186,1) 0%, rgb(4, 106, 165) 22%);
+    background: linear-gradient(360deg, rgba(49,114,168,1) 0%, rgb(36,80,118,1) 22%);
 }
 
 .header {
@@ -16,17 +17,17 @@
     margin: 20px;
 }
 
-.header h6 {
+.header p {
     margin: 0;
     padding-right: 20px;
     padding-bottom: 5px;
     text-align: right;
     color: white;
-    font-weight: normal;
+    font-size: 15px;  
 }
 
-.header h6 > a {
-    color: rgb(235, 184, 55);
+.header p > a {
+    color: #edca37;
 }
 
 .header form {
@@ -44,25 +45,28 @@
 .search input {
     font-size: 13px;
     width: 120px;
-    height: 20px;
+    height: 26px;
     text-align: center;
     margin-right: 5px;
+    border-width: 2px;
+    border-color: #9a9a9a;
 }
 
 button {
-    font-size: 13px;
+    font-size: 11px !important;
     color: white;
-    background-color: rgb(16, 75, 201);
+    background-color: #245076;
     border-radius: 5px;
+    padding: 5px 7px 5px 7px;
 }
 
 .navbar {
     font-family: 'Courier New', Courier, monospace;
     font-weight: bold;
     color: white;
-    width: calc(100% - 40px);
+    width: 90%;
     height: 50px;
-    margin: 0 auto;
+    margin: 0 40px 0 65px;
     padding: 0;
     background-color: rgb(32, 138, 199);
     display: flex;
@@ -73,11 +77,17 @@ button {
     box-shadow: 3px 3px rgb(34, 33, 33);
 }
 
-.main {
-    display: flex;
+.navbar li {
+    font-size: 22px;
+    font-weight: normal;
 }
 
-.menu{
+.main {
+    display: flex;
+    padding-left: 60px;
+}
+
+.menu {
     margin: 20px;
     padding-left: 40px;
     text-align: center;
@@ -86,15 +96,16 @@ button {
 }
 
 .menu li::before {
-    color: rgb(235, 184, 55);
+    color: #edca37;
     content: ">>";
-    display: inline-block;
-    font-size: 10px;
+    font-size: 7px;
     padding-right: 5px;
+    vertical-align: middle;
 }
 
 .menu li {
     padding: 5px;
+    font-size: 20px;
 }
 
 .menu li a {
@@ -102,12 +113,13 @@ button {
 }
 
 .about {
-    margin: 20px;
+    margin: 20px 0;
     padding-right: 30px;
 }
 
 .about p {
-    font-size: 13px;
+    width: 595px;
+    font-size: 15px;
     padding-right: 20px;
     margin-top: 0;
     text-align: center;
@@ -120,7 +132,7 @@ button {
     padding: 0;
     text-align: center;
     font-style: italic;
-    color: rgb(235, 184, 55);
+    color: #edca37;
     list-style: none;
 }
 
@@ -133,6 +145,7 @@ button {
     font-weight: normal;
     text-align: center;
     color: white;
+    font-size: 20px;
 }
 
 .direction {
@@ -143,33 +156,48 @@ button {
 
 .start, .app {
     margin: 20px 20px 0 20px;
-    width: calc(50% - 60px);
-    border-top: 5px solid rgb(4, 106, 165);
+    width: 350px;
+    border-top: 5px solid #73a8d6;
+}
+
+.start {
+    margin-left: 65px;
+    padding-right: 50px;
+}
+
+.app {
+    margin-right: 35px;
+    padding-right: 50px;
 }
 
 .start h4, .app h4 {
     margin: 5px 0;
+    font-size: 20px;
     font-weight: normal;
     text-align: center;
+    padding-left: 35px;
 }
 
 .start p, .app p {
-    font-size: 13px;
+    font-size: 15px;
     padding: 0 50px;
     margin-top: 0;
+    margin-bottom: 0;
     text-align: center;
+    width: 295px;
 }
 
 .start ul, .app ul {
-    font-size: 13px;
-    margin: 20px auto;
+    font-size: 15px;
+    margin: 5px 15px 15px 15px;
     text-align: center;
     width: 250px;
     padding-right: 15px;
+    padding-left: 65px;
 }
 
 .start li, .app li {
-    margin-bottom: 10px;
+    margin-bottom: 5px;
 }
 
 .start li a, .app li a {
@@ -202,6 +230,7 @@ button {
 .footer h6 {
     color: white;
     opacity: 0.5;
-    margin: 0;
+    margin-top: 10px;
+    padding: 0 0 10px 0;
     text-align: center;
 }
