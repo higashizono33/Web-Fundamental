@@ -5,16 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CAT TO NINJA</title>
     <style>
-        section {
-            width: 200px;
+        div {
+            margin: 30px 0 0 30px;
         }
         img {
-
+            width: 400px;
         }        
     </style>
     <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
     <script>
-        $(function() {
+        $(document).ready(function(){
+            var img = "";
+            for(var i=0; i<=4; i++) {
+                img += "<img src=img/cat"+i+".png data-alt-src=img/ninja"+i+".png data-alt-src2=img/cat"+i+".png>";
+            }
+            $('div').html(img);
+
             $('img').click(function() {
                 if($(this).attr('src') != $(this).attr('data-alt-src')) {
                     $(this).attr('src', $(this).attr('data-alt-src'));
@@ -26,12 +32,12 @@
     </script>
 </head>
 <body>
-    <section>
-        <img src="img/cat0.png" data-alt-src="img/ninja0.png" data-alt-src2="img/cat0.png">
+    <div>
+        <!-- <img src="img/cat0.png" data-alt-src="img/ninja0.png" data-alt-src2="img/cat0.png">
         <img src="img/cat1.png" data-alt-src="img/ninja1.png" data-alt-src2="img/cat1.png">
         <img src="img/ninja2.png" data-alt-src="img/cat2.png" data-alt-src2="img/ninja2.png">
         <img src="img/ninja3.png" data-alt-src="img/cat3.png" data-alt-src2="img/ninja3.png">
-        <img src="img/ninja4.png" data-alt-src="img/cat4.png" data-alt-src2="img/ninja4.png">
-    </section>
+        <img src="img/ninja4.png" data-alt-src="img/cat4.png" data-alt-src2="img/ninja4.png"> -->
+    </div>
 </body>
 </html>
