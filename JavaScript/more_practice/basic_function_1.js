@@ -73,6 +73,7 @@ a();
 //i=3, i=5, 5
 //i=6, i=8, 8
 //i=9, i=11, 11
+//print: 2, 5, 8, 11
 
 function a(b,c){
     for(var i=b; i<c; i++) {
@@ -82,7 +83,7 @@ function a(b,c){
 }
 a(0,10);
 console.log(a(0,10));
-<div id="copy-toolbar-container" style="cursor: pointer; position: absolute; top: 5px; right: 5px; padding: 0px 3px; background: rgba(224, 224, 224, 0.2); box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 0px 0px; color: rgb(187, 187, 187); border-radius: 0.5em; font-size: 0.8em;"><span id="copy-toolbar">copy</span></div>
+//a(0,10) prints
 //i=0, 0
 //i=1, 1
 //i=2, 2
@@ -93,7 +94,10 @@ console.log(a(0,10));
 //i=7, 7
 //i=8, 8
 //i=9, 9
-//i=0, 0
+//return 0
+
+//console.log(a(0,10)) prints
+//i=0, 0 
 //i=1, 1
 //i=2, 2
 //i=3, 3
@@ -110,10 +114,10 @@ function a(){
         for(var j=0; j<10; j++){
             console.log(j);
         }
-       console.log(i);
+        console.log(i);
     }
 }
-//undefinded
+//undefined
 
 function a(){
     for(var i=0; i<10; i++){
@@ -123,7 +127,7 @@ function a(){
         console.log(j,i);
     }
 }
-//undefinded
+//undefined
 
 var z = 10;
 function a(){
@@ -151,5 +155,9 @@ function a(){
 }
 z = a();
 console.log(z);
+//z = a();
 //15
+//return 15
+
+//console.log(z);
 //15
