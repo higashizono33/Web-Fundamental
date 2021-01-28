@@ -11,8 +11,15 @@
 				$(this).css('color', 'black');
 			});
 
+			var order = '';
+
+			$('li').click(function() {
+				order = order + $(this).text() + "\n" ;
+				// console.log(order);
+			})
+
 			$('a').click(function(){
-				alert("we don't actually serve pizza...");
+				alert("Your Order:\n" + order);
 			});
 
 			$('img').click(function(){
@@ -28,7 +35,6 @@
 				alert("Thank you for your input, we like " + result + " too!");
 			});	
 		})
-
 	</script>
 </head>
 <body>
@@ -74,7 +80,6 @@
 				</ul>
 				<a href="#">Click here to order!</a>
 			</div>
-			
 		</div>  <!--end of left content -->
 		<div id='right_content'>
 			<img src="pizza.jpg">
