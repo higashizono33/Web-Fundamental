@@ -6,9 +6,11 @@
     <title>My jQuery basic assignment</title>
     <style>
         section {
-            width: 450px;
+            width: 500px;
+            height: 100px;
             border-bottom: 3px solid grey;
             display: flex;
+            margin-left: 100px;
         }
         button {
             width: 100px;
@@ -19,11 +21,16 @@
         div {
             display: inline-block;
             text-align: center;
-            margin-left: 50px;
+            margin-left: 80px;
+        }
+
+        .no_margin-top {
+            margin-top: 0;
         }
 
         input {
-            margin-top: 50px;
+            margin-top: 30px;
+            width: 200px;
         }
 
         .red {
@@ -44,7 +51,7 @@
                 $(".toggle div").toggle();
             });
             $(".slide_down button").click(function() {
-                $(".slide_down div").slideDown(3000);
+                $(".slide_down div").slideDown(1000);
             });
             $(".slide_up button").click(function() {
                 $(".slide_up div").slideUp();
@@ -56,7 +63,7 @@
                 $(".fade_in div").fadeIn(1000);
             });
             $(".fade_out button").click(function() {
-                $(".fade_out div").fadeOut(5000);
+                $(".fade_out div").fadeOut(2000);
             });
             $(".add_class button").click(function() {
                 $(".add_class div").addClass("red");
@@ -68,21 +75,21 @@
                 $(".after h1").after($(".after p"));
             });
             $(".append button").click(function() {
-                $(".append div").append($(".append button"));
+                $(".append div").append($("<p>you appended!!</p>"));
+                $(".append h1").addClass("no_margin-top");
             });
             $(".html button").click(function() {
-                $(".html p").html("Hello World!!");
+                $(".html h1").html("Hello World!!");
             });
             $(".attr button").click(function() {
-                $(".attr div").attr("style", "color: blue;");
+                $(".attr h1").attr("style", "color: blue;");
             });
             $(".val button").click(function() {
-                $(".val input").val("Coding");
+                $(".val input").val("Coding!Coding!Coding!!");
             });
             $(".text button").click(function() {
                 $(".text h1").text("Hello World!!");
             });
-
         });
     </script>
     
@@ -92,21 +99,21 @@
         <button>Hide</button>
         <div>
             <h1>Hide</h1>
-            <p>Click the button to hide this paragraph</p>
+            <p>Click the button to Hide this paragraph</p>
         </div>
     </section>
     <section class="show">
         <button>Show</button>
         <div>
             <h1 style="display: none;">Show</h1>
-            <p>Click the button to show hidden word</p>
+            <p>Click the button to Show hidden word</p>
         </div>
     </section>
     <section class="toggle">
         <button>Toggle</button>
         <div>
             <h1>Toggle</h1>
-            <p>Click the button to toggle this paragraph</p>
+            <p>Click the button to Toggle this paragraph</p>
         </div>
     </section>
     <section class="slide_down">
@@ -148,20 +155,20 @@
         <button>Add Class</button>
         <div>
             <h1>Add Class</h1>
-            <p>Click the button to Add Class this paragraph</p>
+            <p>Click the button to Add Class to make red</p>
         </div>
     </section>
     <section class="before">
         <button>Before</button>
         <div>
             <h1>Before</h1>
-            <p>Click the button to put this paragraph Before h1</p>
+            <p>Click the button to put this paragraph Before "h1"</p>
         </div>
     </section>
     <section class="after">
         <button>After</button>
         <div>
-            <p>Click the button to put this paragraph After h1</p>
+            <p>Click the button to put this paragraph After "h1"</p>
             <h1>After</h1>
         </div>
     </section>
@@ -176,28 +183,28 @@
         <button>HTML</button>
         <div>
             <h1>HTML</h1>
-            <p>Click the button to change this paragraph</p>
+            <p>Click the button to change the word in HTML</p>
         </div>
     </section>
     <section class="attr">
         <button>Attr</button>
         <div>
             <h1>Attr</h1>
-            <p>Click the button to change this attr</p>
+            <p>Click the button to change h1 Attr to be blue</p>
         </div>
     </section>
     <section class="val">
         <button>Val</button>
         <div>
             <input type="text">
-            <p>Click the button to input</p>
+            <p>Click the button to input the Value</p>
         </div>
     </section>
     <section class="text">
         <button>Text</button>
         <div>
             <h1>Text</h1>
-            <p>Click the button to change this Text</p>
+            <p>Click the button to change the Text</p>
         </div>
     </section>
 </body>
