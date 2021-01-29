@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hover In and Out</title>
+    <style>
+        body {
+            width: 1000px;
+        }
+        div {
+            position: relative;
+            display: inline-block;
+            width: 200px;
+            height: 300px;
+            margin-left: 30px;
+        }
+        img {
+            position: relative;
+            float: left;
+            width: 190px;
+            height: 270px;
+            margin-left: 30px;
+            margin-top: 10px;
+            border: 3px solid rgb(180, 180, 180);
+        }
+        p {
+            position: absolute;
+            top: 5px;
+            left: 100px;
+        }
+        h3 {
+            margin-left: 60px;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function() {
+            var hover_count = 0;
+            $('img').hover(function(){
+                $(this).attr('temp', $(this).attr('src'));
+                $(this).attr('src', $(this).attr('data-alt-src'));
+                hover_count++;
+                // console.log(hover_count);
+                if(hover_count == 10) {
+                    $(this).after("<p>I'm tired...</p>");
+                    hover_count = 0;
+                }
+                }, function(){
+                $(this).attr('src', $(this).attr('temp'));
+            });
+        });
+    </script>
+</head>
+<body>
+    <div>
+        <img src="img/top1.png" data-alt-src="img/top2.png" temp="" alt="pic_ninja_top">
+    </div>
+    <div>
+        <img src="img/right1.png" data-alt-src="img/right2.png" temp="" alt="pic_ninja_right">
+    </div>
+    <div>
+        <img src="img/down1.png" data-alt-src="img/down2.png" temp="" alt="pic_ninja_down">
+    </div>
+    <div>
+        <img src="img/left1.png" data-alt-src="img/left2.png" temp="" alt="pic_ninja_left">
+    </div>
+    <h3>If you repeat hover in and out 10 times and the Ninja will say something...</h3>
+</body>
+</html>
