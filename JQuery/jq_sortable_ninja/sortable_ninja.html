@@ -3,30 +3,49 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>jQuery UI Sortable - Default functionality</title>
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-    <link rel="stylesheet" href="/resources/demos/style.css">
+    <title>Sortable Ninja</title>
     <style>
-        #sortable { list-style-type: none; margin: 0; padding: 0; width: 60%; }
-        #sortable li { margin: 0; padding: 0; padding-left: 1.5em; font-size: 1.4em; height: 80px; }
-        #sortable li img { width: 250px; height: 100%;}
+        #sortable_ninja { list-style-type: none; margin: 0 auto; padding: 0; width: 400px; }
+        #sortable_ninja li img { width: 400px; height: 100%;}
     </style>
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script>
+        
         $(function() {
-            $("#sortable").sortable();
-            $("#sortable").disableSelection();
+            $("#sortable_ninja").sortable({
+                revert: true,
+                containment: "parent",
+                update: function (event, ui) {
+                    var trueOrder = ["ninja_sort2", "ninja_sort4", "ninja_sort1", "ninja_sort3", "ninja_sort5"];
+                    var isFine = true;
+                    var ninja_images = $.map($("#sortable_ninja").find("img"), function (c) {
+                        return $(c).attr("alt");
+                    });
+
+                    for (i = 0; i < ninja_images.length; i++) {
+                        if (trueOrder[i] !== ninja_images[i]) {
+                            isFine = false;
+                            break;
+                        }
+                    }
+                
+                    if (isFine) {
+                        alert("You got right sort!");
+                    }
+                }
+            });
         });
+        
     </script>
 </head>
 <body>
-    <ul id="sortable">
-        <li class="ui-state-default"><img src="sorting_images/sort1.png"></li>
-        <li class="ui-state-default"><img src="sorting_images/sort2.png"></li>
-        <li class="ui-state-default"><img src="sorting_images/sort3.png"></li>
-        <li class="ui-state-default"><img src="sorting_images/sort4.png"></li>
-        <li class="ui-state-default"><img src="sorting_images/sort5.png"></li>
+    <ul id="sortable_ninja">
+        <li class="ui-state-default"><img src="sorting_images/sort1.png" alt="ninja_sort1"></li>
+        <li class="ui-state-default"><img src="sorting_images/sort2.png" alt="ninja_sort2"></li>
+        <li class="ui-state-default"><img src="sorting_images/sort3.png" alt="ninja_sort3"></li>
+        <li class="ui-state-default"><img src="sorting_images/sort4.png" alt="ninja_sort4"></li>
+        <li class="ui-state-default"><img src="sorting_images/sort5.png" alt="ninja_sort5"></li>
     </ul>
 </body>
 </html>

@@ -104,33 +104,33 @@
 		constructor(x, y, type, explosion) {
 			this.x = x;
 			this.y = y;
-			console.log(this.y);
 			this.type = type;
-			
 			this.explosion = explosion;
-			this.drawEnemy();
+			this.drawEnemy(this.x, this.y, this.type);
 		}
-		drawEnemy() {
+		drawEnemy(x, y, type) {
+			console.log(this.y);
 			console.log(this.type);
-			document.getElementById('enemies').innerHTML = 
-			"<div class=" + this.type + " style='top:" + this.y + "px; left:" + this.x + "px;'></div>";
+			document.getElementById('enemies').innerHTML = this.type;
+
+			// "<div class=" + this.type + " style='top:" + this.y + "px; left:" + this.x + "px;'></div>";
 			//why this.type, this.y and this.x is undefined in HTML?
 			// "<div class=" + "enemy1" + " style='top:" + 50 + "px; left:" + 50 + "px;'></div>";
 		}		
 		
 	}
-	function moveEnemies() {
-		for (var i = 0; i < enemies.length; i++) {
-			if(!enemies[i].explosion) {
-				enemies[i].y += 10;
-			}
-			if(enemies[i].y == 550) {
-				enemies[i].y = 0;
-				enemies[i].x = Math.random() * 500;
-			}
-		}
-		drawEnemy();
-	}
+	// function moveEnemies() {
+	// 	for (var i = 0; i < enemies.length; i++) {
+	// 		if(!enemies[i].explosion) {
+	// 			enemies[i].y += 10;
+	// 		}
+	// 		if(enemies[i].y == 550) {
+	// 			enemies[i].y = 0;
+	// 			enemies[i].x = Math.random() * 500;
+	// 		}
+	// 	}
+	// 	drawEnemy();
+	// }
 
 	// var enemies = [
 	// 	{x: 50, y: 50, type:"enemy2", explosion: false},
@@ -146,8 +146,8 @@
 	var enemies = []
 	// enemies.drawEnemy();
 	
-	var a = new Enemy(50, 50, "enemy2", false);
-	a.drawEnemy();
+	new Enemy(50, 50, "enemy2", false);
+	// a.drawEnemy();
 	// enemies[1]= new Enemy(150, 50, "enemy1", false);
 	// enemies[2]= new Enemy(250, 50, "enemy3", false);
 	// enemies[3]= new Enemy(350, 250, "enemy4", false);
