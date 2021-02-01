@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>jQuery UI Test - Tab</title>
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-    <!-- <link rel="stylesheet" href="https://resources/demos/style.css"> -->
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script>
@@ -13,28 +12,139 @@
             $("#accordion").accordion();
             $("#tabs").tabs();
             $("#menu").menu();
+            var availableTags = [
+                "ActionScript",
+                "AppleScript",
+                "Asp",
+                "BASIC",
+                "C",
+                "C++",
+                "Clojure",
+                "COBOL",
+                "ColdFusion",
+                "Erlang",
+                "Fortran",
+                "Groovy",
+                "Haskell",
+                "Java",
+                "JavaScript",
+                "Lisp",
+                "Perl",
+                "PHP",
+                "Python",
+                "Ruby",
+                "Scala",
+                "Scheme"
+            ];
+            $("#tags").autocomplete({
+                source: availableTags
+            });
+            $("#tabs-5").find("input").checkboxradio();
+            $(".controlgroup").controlgroup()
+            $(".controlgroup-vertical").controlgroup({
+                "direction": "vertical"
+            });
+            $("#tab_dialog").click(function() {
+                $("#dialog").dialog({
+                    position: { my: "top+250px", at: "top", of: window }
+                });
+            })
+            $("#progressbar").progressbar({
+                value: 25
+            });
+            var progressbar_value = $("#progressbar").progressbar("option", "value");
+            $("#progressbar_add").click(function() {
+                progressbar_value+=5;
+                $("#progressbar").progressbar("option", "value", progressbar_value);
+            });
+            $("#progressbar_subtract").click(function() {
+                progressbar_value-=5;
+                $("#progressbar").progressbar("option", "value", progressbar_value);
+            });
+            $("#tab_slider").click(function() {
+                $("#slider").slider();
+            })
+            $("#toggle_slider").click(function() {
+                $("#slider").toggle();
+            })
+
+            var spinner = $("#spinner").spinner();
+
+            $("#disable").on("click", function() {
+                if(spinner.spinner("option", "disabled")) {
+                    spinner.spinner("enable");
+                } else {
+                    spinner.spinner("disable");
+                }
+            });
+            $("#destroy").on("click", function() {
+                if(spinner.spinner("instance")) {
+                    spinner.spinner("destroy");
+                } else {
+                    spinner.spinner();
+                }
+            });
+            $("#getvalue").on("click", function() {
+                alert(spinner.spinner("value"));
+            });
+            $("#setvalue").on("click", function() {
+                spinner.spinner("value", 5);
+            });
+            $("#tabs-10").find("button").button();
+
         });
     </script>
     <style>
         #tabs {
-            width: 970px;
+            width: 1100px;
+            margin: 50px auto;
+            background-color: gainsboro;
         }
         .ui-menu { 
             width: 150px;
         }
         label {
             display: inline-block;
-            width: 5em;
+            width: 7em;
         }
+        .ui-controlgroup-vertical {
+            width: 150px;
+        }
+        .ui-controlgroup.ui-controlgroup-vertical > button.ui-button,
+        .ui-controlgroup.ui-controlgroup-vertical > .ui-controlgroup-label {
+            text-align: center;
+        }
+        #car-type-button {
+            width: 120px;
+        }
+        .ui-controlgroup-horizontal .ui-spinner-input {
+            width: 20px;
+        }
+        #slider {
+            width: 1020px;
+            margin: 50px auto;
+        }
+        /* #toggle_slider {
+            margin-top: 30px;
+        } */
+
     </style>
 
 </head>
 <body>
     <div id="tabs">
+        <h1>Play with jQuery UI</h1>
         <ul>
             <li><a href="#tabs-1">Menu</a></li>
             <li><a href="#tabs-2">Tooltips</a></li>
             <li><a href="#tabs-3">Accordion</a></li>
+            <li><a href="#tabs-4">Autocomplete</a></li>
+            <li><a href="#tabs-5">Checkboxradio</a></li>
+            <li><a href="#tabs-6">Controlgroup</a></li>
+            <li id="tab_dialog"><a href="#tabs-7">Dialog</a></li>
+            <li><a href="#tabs-8">Processbar</a></li>
+            <li id="tab_slider"><a href="#tabs-9">Slider</a></li>
+            <li><a href="#tabs-10">Spinner</a></li>
         </ul>
         <div id="tabs-1">
             <ul id="menu">
@@ -138,6 +248,132 @@
                     </p>
                 </div>
             </div>
+        </div>
+        <div id="tabs-4">
+            <label for="tags">Tags: </label>
+            <input type="text" id="tags">
+        </div>
+        <div id="tabs-5">
+            <h1>Checkbox and radio button widgets</h1>
+            
+            <h2>Radio Group</h2>
+            <fieldset>
+                <legend>Select a Location: </legend>
+                <label for="radio-1">New York</label>
+                <input type="radio" name="radio-1" id="radio-1">
+                <label for="radio-2">Paris</label>
+                <input type="radio" name="radio-1" id="radio-2">
+                <label for="radio-3">London</label>
+                <input type="radio" name="radio-1" id="radio-3">
+            </fieldset>
+            
+            <h2>Checkbox</h2>
+            <fieldset>
+                <legend>Hotel Ratings: </legend>
+                <label for="checkbox-1">2 Star</label>
+                <input type="checkbox" name="checkbox-1" id="checkbox-1">
+                <label for="checkbox-2">3 Star</label>
+                <input type="checkbox" name="checkbox-2" id="checkbox-2">
+                <label for="checkbox-3">4 Star</label>
+                <input type="checkbox" name="checkbox-3" id="checkbox-3">
+                <label for="checkbox-4">5 Star</label>
+                <input type="checkbox" name="checkbox-4" id="checkbox-4">
+            </fieldset>
+            
+            <h2>Checkbox nested in label</h2>
+            <fieldset>
+                <legend>Bed Type: </legend>
+                <label for="checkbox-nested-1">2 Double
+                <input type="checkbox" name="checkbox-nested-1" id="checkbox-nested-1">
+                </label>
+                <label for="checkbox-nested-2">2 Queen
+                <input type="checkbox" name="checkbox-nested-2" id="checkbox-nested-2">
+                </label>
+                <label for="checkbox-nested-3">1 Queen
+                <input type="checkbox" name="checkbox-nested-3" id="checkbox-nested-3">
+                </label>
+                <label for="checkbox-nested-4">1 King
+                <input type="checkbox" name="checkbox-nested-4" id="checkbox-nested-4">
+                </label>
+            </fieldset>
+        </div>
+        <div id="tabs-6">
+            <h1>Controlgroup</h1>
+            <fieldset>
+                <legend>Rental Car</legend>
+                <div class="controlgroup">
+                    <select id="car-type">
+                        <option>Compact car</option>
+                        <option>Midsize car</option>
+                        <option>Full size car</option>
+                        <option>SUV</option>
+                        <option>Luxury</option>
+                        <option>Truck</option>
+                        <option>Van</option>
+                    </select>
+                    <label for="transmission-standard">Standard</label>
+                    <input type="radio" name="transmission" id="transmission-standard">
+                    <label for="transmission-automatic">Automatic</label>
+                    <input type="radio" name="transmission" id="transmission-automatic">
+                    <label for="insurance">Insurance</label>
+                    <input type="checkbox" name="insurance" id="insurance">
+                    <label for="horizontal-spinner" class="ui-controlgroup-label"># of cars</label>
+                    <input id="horizontal-spinner" class="ui-spinner-input">
+                    <button>Book Now!</button>
+                </div>
+            </fieldset>
+            <br>
+            <fieldset>
+                <legend>Rental Car</legend>
+                <div class="controlgroup-vertical">
+                    <select>
+                        <option>Compact car</option>
+                        <option>Midsize car</option>
+                        <option>Full size car</option>
+                        <option>SUV</option>
+                        <option>Luxury</option>
+                        <option>Truck</option>
+                        <option>Van</option>
+                    </select>
+                    <label for="transmission-standard-v">Standard</label>
+                    <input type="radio" name="transmission-v" id="transmission-standard-v">
+                    <label for="transmission-automatic-v">Automatic</label>
+                    <input type="radio" name="transmission-v" id="transmission-automatic-v">
+                    <label for="insurance-v">Insurance</label>
+                    <input type="checkbox" name="insurance" id="insurance-v">
+                    <label for="vertical-spinner" class="ui-controlgroup-label"># of cars</label>
+                    <input id="vertical-spinner" class="ui-spinner-input">
+                    <button id="book">Book Now!</button>
+                </div>
+            </fieldset>
+        </div>
+        <div id="tabs-7">
+            <div id="dialog" title="Basic dialog">
+                <p>This is the default dialog which is useful for displaying information. The dialog window can be moved, resized and closed with the &apos;x&apos; icon.</p>
+            </div>
+        </div>
+        <div id="tabs-8">
+            <div id="progressbar"></div>
+            <button id="progressbar_add">ADD</button>
+            <button id="progressbar_subtract">SUBTRACT</button>
+        </div>
+        <div id="tabs-9">
+            <div id="slider"></div>
+            <!-- <button id="toggle_slider">Toggle</button> -->
+        </div>
+        <div id="tabs-10">
+            <p>
+                <label for="spinner">Select a value:</label>
+                <input id="spinner" name="value">
+            </p>
+            <p>
+                <button id="disable">Toggle disable/enable</button>
+                <button id="destroy">Toggle widget</button>
+            </p>
+            <p>
+                <button id="getvalue">Get value</button>
+                <button id="setvalue">Set value to 5</button>
+            </p>
         </div>
     </div>
 
