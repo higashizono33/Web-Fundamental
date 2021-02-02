@@ -10,15 +10,16 @@
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     
     <script>
-    $(function() {
-        $("#datepicker_1").datepicker();
-        $("#datepicker_2").datepicker();
+        $(function() {
+            $("#datepicker_1").datepicker();
+            $("#datepicker_2").datepicker();
         $("form").submit(function() {
             var name = $('#name').val();
             var fromDate = $('#datepicker_1').val();
             var toDate = $('#datepicker_2').val();
             if($('#name').empty()) {
                 $("#name_blank").addClass("show_error");
+                $("button").css('background-color', 'red');
             } 
             if(name) {
                 $("#name_blank").removeClass("show_error");
@@ -29,20 +30,25 @@
             if(fromDate) {
                 $("#from_date_blank").removeClass("show_error");
             }
-            if($('#datepicker_1').empty()) {
+            if($('#datepicker_2').empty()) {
                 $("#to_date_blank").addClass("show_error").html("To date can't be blank!");
             } 
             if(toDate) {
                 $("#to_date_blank").removeClass("show_error");
             }
-            if(fromDate > toDate) {
+            if(toDate != 0 && fromDate > toDate) {
                 $("#to_date_blank").addClass("show_error").html("To date can't be prior to date you leave!");
+            }
+            if(toDate != 0 && fromDate == toDate) {
+                $("#to_date_blank").addClass("show_error").html("Same date? What a short cruise!");
             }
             if(name && fromDate && toDate) {
                 if(!$("#to_date_blank").hasClass('show_error')) {
-                    alert("Thanks "+name+"! You cruise leaves on "+fromDate+
+                    $("button").css('background-color', 'cornflowerblue');
+                    alert("Thanks "+name+"! Your cruise leaves on "+fromDate+
                     " and returns on "+toDate+"!");
                 }
+
             }
             console.log($(this).serialize());
             return false;
@@ -50,32 +56,50 @@
     });
     </script>
     <style>
+        .wrapper {
+            border: 3px solid grey;
+            width: 600px;
+            text-align: center;
+            margin: 50px auto;
+        }
         form {
-            margin-left: 100px;
-            margin-top: 20px;
+        }
+        form input {
+            display: block;
+            margin: 20px auto;
+            height: 25px;
             width: 200px;
+            border: 3px solid grey;
+            border-radius: 3px;
+            font-size: 1em;
         }
-        section {
-            margin-bottom: 20px;
-            text-align: right;
-        }
-        section input {
-            margin-bottom: 10px;
+        form input::placeholder {
+            color: black;
         }
         #name {
             margin-top: 100px;
         }
         button {
+            width: 120px;
+            height: 50px;
             background-color: cornflowerblue;
             border-radius: 5px;
-            margin-left: 70px;
+            margin-top: 50px;
+            margin-bottom: 50px;
+            color: white;
+            font-size: 1em;
+        }
+        .ui-datepicker { 
+            top: 130px !important;
+            left: 675px !important;
         }
         #name_blank {
             visibility: hidden;
             color: red;
             position: absolute;
-            left: 350px;
-            top: 200px;
+            font-weight: bold;
+            left: 690px;
+            top: 310px;
         }
         .show_error {
             visibility: visible !important;
@@ -84,37 +108,36 @@
             visibility: hidden;
             color: red;
             position: absolute;
-            left: 350px;
-            top: 5px;
+            font-weight: bold;
+            left: 690px;
+            top: 120px;
         }
         #to_date_blank {
             visibility: hidden;
             color: red;
             position: absolute;
-            left: 350px;
-            top: 50px;
+            font-weight: bold;
+            left: 690px;
+            top: 175px;
         }
     </style>
     
 </head>
 </head>
 <body>
-    <form>
-        <section>
-            <p>From: 
-                <input type="text" id="datepicker_1" name="date_from">
-                <p id="from_date_blank">From date can't be blank!</p>
-            </p>
-            <p>To: 
-                <input type="text" id="datepicker_2" name="date_to">
-                <p id="to_date_blank"></p>
-            </p>
-            <p>Name: 
-                <input type="text" id="name" name="name">
+    <div class="wrapper">
+        <h1>Welcome to Codingdojo plan-a-Cruise!</h1>
+        <form>
+            <input type="text" id="datepicker_1" name="date_from" placeholder="From: ">
+            <p id="from_date_blank">From date can't be blank!</p>
+            <input type="text" id="datepicker_2" name="date_to" placeholder="To: ">
+            <p id="to_date_blank"></p>
+            <div>
+                <input type="text" id="name" name="name" placeholder="Name: ">
                 <p id="name_blank">Your name can't be blank!</p>
-            </p>
-        </section>
-        <button type="submit">Check Date!!</button>
-    </form>
+            </div>
+            <button type="submit">Check Date!!</button>
+        </form>
+    </div>
 </body>
 </html>
