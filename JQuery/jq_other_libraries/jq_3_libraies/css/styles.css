@@ -1,0 +1,82 @@
+/* body * {
+    outline: 1px dotted red;
+} */
+.title {
+    margin: 0 auto;
+    width: 1000px;
+    text-align: center;
+    font-weight: bold;
+    color: red;
+    font-size: 20px;
+    line-height: 1.5;
+    text-align: center;
+}
+.title h1 {
+    font-size: 72px;
+    text-transform: uppercase;
+    margin-bottom: 0px;
+}
+.char2, .word2, .line2 { 
+    color: orange;
+}
+.char3, .word3, .line3 {
+    color: yellow;
+}
+.char4, .line4 {
+    color: blue;
+}
+.char5 { 
+    color: green; 
+}
+.char6 {
+    color: indigo;
+}
+.char7 {
+    color: royalblue;
+}
+.char8 {
+    color: green
+}
+.char9 {
+    color: violet;
+}
+.char10 {
+    color: rgb(226, 72, 72);
+}
+.char11 {
+    color: rgb(119, 18, 119);
+}
+.char12 {
+    color: yellowgreen;
+}
+.char13 {
+    color: skyblue;
+}
+.char14 {
+    color: rgb(212, 173, 42);
+}
+.phase {
+    color: red;
+    margin-top: 150px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 300px;
+    font-size: 2em;
+}
+.car-container {
+    text-align: center;
+}
+.car-container img {
+    width: 180px;
+    height: 140px;
+    margin-left: 15px;
+}
+#anpanman {
+    width: 240px;
+    height: 200px;
+}
+.img_back {
+    opacity: 1 !important;
+    transform: translateY(10px) !important;
+    transform: translateX(770px) !important;
+}

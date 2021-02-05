@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kids Car World</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="flex_slider/flexslider.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript" src="arctext/jquery.arctext.js"></script>
+    <script type="text/javascript" src="lettering/jquery.lettering.js"></script>
+    <script type="text/javascript" src="flex_slider/jquery.flexslider.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('.title h1').show().arctext({radius: 400});
+            // $('.title h1').lettering('words').children("span").lettering();
+            $(".phase h1").lettering().children("span").css({'display':'inline-block', '-webkit-transform':'rotate(-25deg)'});
+            $('.flexslider').flexslider();
+        });    
+    </script>
+</head>
+<body>
+    <div class="title">
+        <h1>kids car world</h1>
+    </div>
+    <div class="phase" id="phase">
+        <h1>ZOOOom!</h1>
+    </div>
+    <img src="img/anpanman.png" alt="anpanman" id="anpanman">
+
+    <div class="car-container">
+        <img src="img/car-blackwhite.png" alt="car-blackwhite">
+        <img src="img/car-blue.png" alt="car-blue">
+        <img src="img/car-green-1.png" alt="car-green-1">
+        <img src="img/car-orange.png" alt="car-orange">
+        <img src="img/car-red.png" alt="car-red">
+        <img src="img/car-yellow.png" alt="car-yellow">
+        <img src="img/car-green-2.png" alt="car-green-2">
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/gsap.min.js"></script>
+    <script>CSSPlugin.defaultTransformPerspective = 400; 
+        gsap.to("#anpanman", {duration: 7, x: 595, ease: "bounce"});
+        gsap.from(".car-container img", {
+            duration: 2,
+            scale: 0.5, 
+            opacity: 0, 
+            delay: 0.5, 
+            stagger: 0.5,
+            ease: "elastic", 
+            force3D: true
+        });
+
+        document.querySelectorAll(".car-container img, #anpanman").forEach(function(box) {
+            box.addEventListener("click", function() {
+                gsap.to(".car-container img, #anpanman", {
+                    duration: 0.5, 
+                    opacity: 0, 
+                    y: -200, 
+                    stagger: 0.1,
+                    ease: "back.in"
+                });
+            });
+        });
+
+        var phase = document.getElementById('phase');
+        phase.addEventListener("click", function() {
+            $("#anpanman").css('opacity', '1');
+            // $(".car-container img, #anpanman").css('transform', 'translateY(10px)');
+            gsap.to("#anpanman", {duration: 7, x: 595, y:0, ease: "bounce"});
+            gsap.set(".car-container img", {
+                y:0,
+                duration: 1,
+                scale: 1, 
+                opacity: 1, 
+                delay: 0.5, 
+                stagger: 0.5,
+                ease: "elastic", 
+                force3D: true
+            });
+        });
+
+    </script>
+    <div class="flexslider">
+        <ul class="slides">
+            <li><img src="img/construction-car1.png" alt="construction-car1"></li>
+            <li><img src="img/construction-car2.jpeg" alt="construction-car2"></li>
+            <li><img src="img/construction-car3.jpeg" alt="construction-car3"></li>
+            <li><img src="img/construction-car4.png" alt="construction-car4"></li>
+            <li><img src="img/construction-car5.jpg" alt="construction-car5"></li>
+            <li><img src="img/construction-car6.jpg" alt="construction-car6"></li>
+            <li><img src="img/construction-car7.jpg" alt="construction-car7"></li>
+            <li><img src="img/construction-car8.jpg" alt="construction-car8"></li>
+            <li><img src="img/construction-car9.jpg" alt="construction-car9"></li>
+            <li><img src="img/construction-car10.jpg" alt="construction-car10"></li>
+        </ul>
+    </div>
+</body>
+</html>

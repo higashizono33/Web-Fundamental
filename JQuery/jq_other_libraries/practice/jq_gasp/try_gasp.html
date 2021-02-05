@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GASP</title>
+    <style>
+        body {
+            margin: 10px;
+        }
+        .box {
+            display: inline-block;
+        }
+        .orange {
+            background-color: orange;
+            width: 100px;
+            height: 100px;
+            margin-left: 10px;
+        }
+        .grey {
+            background-color: grey;
+            width: 100px;
+            height: 100px;
+            margin-left: 10px;
+            display: inline-block;
+        }
+        .green {
+            background-color: green;
+            width: 100px;
+            height: 100px;
+            margin-left: 10px;
+            display: inline-block;
+        }
+        .pink {
+            background-color: pink;
+            width: 100px;
+            height: 100px;
+            margin-left: 10px;
+            display: inline-block;
+        }
+        .grey {
+            background-color: grey;
+            width: 100px;
+            height: 100px;
+            margin-left: 10px;
+            display: inline-block;
+        }
+        .grey {
+            background-color: grey;
+            width: 100px;
+            height: 100px;
+            margin-left: 10px;
+            display: inline-block;
+        }
+        </style>
+
+</head>
+<body>
+    <!-- <h2 class="title">gsap.to() Basic Usage</h2> -->
+
+    <!-- <div class="box orange"></div>
+    <div class="box grey"></div>
+    <div class="box green"></div> -->
+    <!-- <img id="logo" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/logo-man.svg"/> -->
+    <div class="box green"></div>
+    <div class="box orange"></div>
+    <div class="box grey"></div>
+    <div class="box pink"></div>
+    <div class="box green"></div>
+    <div class="box orange"></div>
+    <div class="box grey"></div>
+    <div class="box pink"></div>
+
+    <p>Click a box to transition out</p>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/gsap.min.js"></script>
+    <script>CSSPlugin.defaultTransformPerspective = 400; 
+        // gsap.to(".green", {duration: 3, rotationX: 360});
+        // gsap.to(".orange", {duration: 3, rotationY: 360});
+        // gsap.to(".grey", {duration: 3, x: 100, y: 100, scale: 2, skewX: 45, rotation: 180});
+        // gsap.from("#logo", {duration: 3, x: 300, opacity: 0, scale: 0.5});
+        // gsap.to("#logo", {duration: 5, x: 500, ease: "bounce"});
+        gsap.from(".box", {
+            duration: 2,
+            scale: 0.5, 
+            opacity: 0, 
+            delay: 0.5, 
+            stagger: 0.2,
+            ease: "elastic", 
+            force3D: true
+        });
+
+        document.querySelectorAll(".box").forEach(function(box) {
+            box.addEventListener("click", function() {
+                gsap.to(".box", {
+                    duration: 0.5, 
+                    opacity: 0, 
+                    y: -100, 
+                    stagger: 0.1,
+                    ease: "back.in"
+                });
+            });
+        });
+    </script>
+</body>
+</html>

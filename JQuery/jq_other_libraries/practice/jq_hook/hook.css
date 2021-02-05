@@ -72,3 +72,16 @@
         transform: rotate(360deg);
     }
 }
+
+input {
+    width: 300px;
+    height: 30px;
+    font-size: 1em;
+}
+
+.explanation {
+    width: 400px;
+    color: red;
+    border-bottom: 3px solid red;
+    font-size: 1em;
+}

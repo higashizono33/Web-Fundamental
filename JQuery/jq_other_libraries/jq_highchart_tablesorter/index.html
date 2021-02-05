@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HighCharts and TableSorter</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.3/css/theme.default.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.3/css/theme.blue.min.css">
+    <style>
+        .highcharts-figure, .highcharts-data-table table {
+            min-width: 360px; 
+            max-width: 1000px;
+            margin: 1em auto;
+        }
+        .highcharts-data-table table {
+            font-family: Verdana, sans-serif;
+            border-collapse: collapse;
+            border: 1px solid #EBEBEB;
+            margin: 10px auto;
+            text-align: center;
+            width: 100%;
+            max-width: 500px;
+        }
+        .highcharts-data-table caption {
+            padding: 1em 0;
+            font-size: 1.2em;
+            color: #555;
+        }
+        .highcharts-data-table th {
+            font-weight: 600;
+            padding: 0.5em;
+        }
+        .highcharts-data-table td, .highcharts-data-table th, .highcharts-data-table caption {
+            padding: 0.5em;
+        }
+        .highcharts-data-table thead tr, .highcharts-data-table tr:nth-child(even) {
+            background: #f8f8f8;
+        }
+        .highcharts-data-table tr:hover {
+            background: #f1f7ff;
+        }
+        .table-container {
+            width: 1000px;
+            margin: 0 auto;
+        }
+        h1 {
+            margin-top: 100px;
+            color: tomato;
+        }
+        .tablesorter-blue {
+            width: 100%;
+            text-align: center;
+        }
+
+    </style>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/series-label.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.3/js/jquery.tablesorter.min.js"></script>
+    <script>
+        $(function() {
+            $("table").tablesorter({
+                theme : 'blue',
+        
+                // third click on the header will reset column to default - unsorted
+                sortReset   : true,
+                // Resets the sort direction so that clicking on an unsorted column will sort in the sortInitialOrder direction.
+                sortRestart : true,
+        
+                sortInitialOrder: 'desc',
+        
+                headers : {
+                // 0 : { lockedOrder: 'asc' }, only allow sorting in one direction
+                3 : { sortInitialOrder: 'desc' },
+                4 : { sortInitialOrder: 'asc' },
+                5 : { sortInitialOrder: 'asc' }
+                }
+            });
+            $('button').click(function() {
+                $('table').trigger('sortReset');
+                return false;
+            });
+        });
+    </script>
+</head>
+<body>
+    <figure class="highcharts-figure">
+        <div id="container"></div>
+        <p class="highcharts-description">
+            My first time to use HighCharts, this is just for my practice purpose. The data is not accurate.
+        </p>
+    </figure>
+
+    <div class="table-container">
+        <h1>Greatest 3pointer in NBA history</h1>
+        <button>Reset</button>
+        <table class="tablesorter">
+            <thead>
+                <tr>
+                    <th>Player</th>
+                    <th>Total 3P made</th>
+                    <th>Most 3P made in season</th>
+                    <th>Age/Age when retired</th>
+                    <th>3P Percentage</th>
+                    <th>2P Percentage</th>
+                    <th>FT Percentage</th>
+                </tr>
+                </thead>
+            <tbody>
+                <tr>
+                    <td>Ray Allen</td>
+                    <td>2,973</td>
+                    <td>269</td>
+                    <td>38</td>
+                    <td>.400</td>
+                    <td>.485</td>
+                    <td>.894</td>
+                </tr>
+                <tr>
+                    <td>Stephen Curry</td>
+                    <td>2,591</td>
+                    <td>402</td>
+                    <td>32</td>
+                    <td>.434</td>
+                    <td>.515</td>
+                    <td>.906</td>
+                </tr>
+                <tr>
+                    <td>Reggie Miller</td>
+                    <td>2,560</td>
+                    <td>229</td>
+                    <td>39</td>
+                    <td>.395</td>
+                    <td>.516</td>
+                    <td>.888</td>
+                </tr>
+                <tr>
+                    <td>Kyle Korver</td>
+                    <td>2,450</td>
+                    <td>226</td>
+                    <td>38</td>
+                    <td>.429</td>
+                    <td>.464</td>
+                    <td>.877</td>
+                </tr>
+                <tr>
+                    <td>James Harden</td>
+                    <td>2,374</td>
+                    <td>378</td>
+                    <td>31</td>
+                    <td>.363</td>
+                    <td>.512</td>
+                    <td>.859</td>
+                </tr>
+                <tr>
+                    <td>Vince Carter</td>
+                    <td>2,290</td>
+                    <td>162</td>
+                    <td>43</td>
+                    <td>.371</td>
+                    <td>.462</td>
+                    <td>.798</td>
+                </tr>
+                <tr>
+                    <td>Jason Terry</td>
+                    <td>2,282</td>
+                    <td>172</td>
+                    <td>40</td>
+                    <td>.380</td>
+                    <td>.484</td>
+                    <td>.845</td>
+                </tr>
+                <tr>
+                    <td>Jamal Crawford</td>
+                    <td>2,221</td>
+                    <td>184</td>
+                    <td>39</td>
+                    <td>.410</td>
+                    <td>.449</td>
+                    <td>.862</td>
+                </tr>
+                <tr>
+                    <td>Paul Pierce</td>
+                    <td>2,143</td>
+                    <td>210</td>
+                    <td>39</td>
+                    <td>.445</td>
+                    <td>.478</td>
+                    <td>.806</td>
+                </tr>
+                <tr>
+                    <td>Jason Kidd</td>
+                    <td>1,988</td>
+                    <td>175</td>
+                    <td>39</td>
+                    <td>.400</td>
+                    <td>.429</td>
+                    <td>.785</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>
+            My first time to use TableSorter, this is just for my practice purpose. The data is not accurate.
+        </p>
+    </div>
+    <script>
+        Highcharts.chart('container', {
+            chart: {
+                backgroundColor: '#dbdde0',
+                height: 500,
+            },
+            title: {
+                text: 'The latest top 5 death of Covid-19 and China by Sector, Jan.2020-2021',
+            },
+            subtitle: {
+                text: 'Source: WHO',
+            },
+            yAxis: {
+                title: {
+                    text: 'Number of Death'
+                }
+            },
+            xAxis: {
+                    type: 'datetime'
+            },
+            legend: {
+                layout: 'vertical',
+                align: 'right',
+                verticalAlign: 'middle'
+            },
+            plotOptions: {
+                series: { 
+                    pointStart: Date.UTC(2020, 0, 1),
+                    pointIntervalUnit: 'month'
+                }
+            },
+            series: [{
+                name: 'United States',
+                data: [0, 0, 7020, 67637, 102640, 129226, 152630, 186663, 207366, 228185, 276503, 345253, 433173]
+            }, {
+                name: 'India',
+                data: [0, 0, 77, 1301, 5164, 19268, 37364, 70626, 101782, 122111, 140182, 149435, 154274]
+            }, {
+                name: 'Brazil',
+                data: [0, 0, 359, 6329, 27878, 63174, 92475, 125521, 145388, 159477, 175964, 195411, 222666]
+            }, {
+                name: 'Mexico',
+                data: [0, 0, 60, 1972, 9415, 29843, 46688, 66851, 78492, 91289, 108863, 126507, 156579]
+            }, {
+                name: 'United Kingdom',
+                data: [0, 0, 5274, 27965, 37385, 40613, 41202, 41549, 42317, 46555, 61014, 74570, 105571]
+            }, {
+                name: 'China',
+                data: [304, 2873, 3338, 4643, 4645, 4648, 4674, 4735, 4746, 4746, 4753, 4791, 4823]
+            }],
+
+            responsive: {
+                rules: [{
+                    condition: {
+                        maxWidth: 500
+                    },
+                    chartOptions: {
+                        legend: {
+                            layout: 'horizontal',
+                            align: 'center',
+                            verticalAlign: 'bottom'
+                        }
+                    }
+                }]
+            }
+        });
+    </script>
+</body>
+</html>
