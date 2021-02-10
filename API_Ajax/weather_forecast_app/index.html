@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My simple weather app</title>
+    <style>
+        body {
+            margin: 0 auto;
+        }
+        h1 {
+            background-color: rgb(192, 243, 91);
+            color: blue;
+            width: 240px;
+            margin: 20px auto;
+            padding: 5px 15px;
+            border-radius: 5px;
+        }
+        .container {
+            width: 80%;
+            margin: 20px auto;
+        }
+        p {
+            margin-bottom: 0;
+        }
+        img {
+            vertical-align: middle;
+            margin-left: 10px;
+            height: 35px;
+        }
+        ul {
+            list-style: circle;
+            padding-left: 20px;
+            margin-top: 10px;
+        }
+        form {
+            width: 30%;
+            margin: 0 auto;
+        }
+        input {
+            padding: 7px;
+        }
+        #submit {
+            background-color: green;
+            border-radius: 5px;
+            color: white;
+            margin-left: 30px;
+        }
+        .error {
+            color: red;
+            display: none;
+        }
+        .info {
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 30px;
+            border: 3px solid grey;
+            border-radius: 5px;
+            padding: 7px 10px;
+            width: 35%;
+        }
+        li {
+            margin-bottom: 7px;
+            border-bottom: 1px solid rgb(184, 181, 181);
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // var url = "https://api.openweathermap.org/data/2.5/onecall?lat=41.980569&lon=-88.085438&units=imperial&appid=d34b94d018220b5737edb7b794e7a892";
+            // $.get(url, function(res) {
+            //     // your code here
+            //     console.log(res);
+            // }, 'json');
+            // $.get(url2, function(res) {
+            //     // your code here
+            //     console.log(res);
+            // }, 'json');
+            $(document).ajaxError(function(){
+                $('form span').show();
+            });
+
+            for(var i=0; i<=7; i++) {
+                var d = new Date();
+                var month = d.getMonth()+1;
+                var day = d.getDate() + i;
+                var output = d.getFullYear() + '/' +
+                    (month<10 ? '0' : '') + month + '/' +
+                    (day<10 ? '0' : '') + day;
+                console.log(output);
+                $('#'+i).text(output+': ');
+            }
+
+            $('form').submit(function() {
+                var input = $('input').val();
+                console.log(input);
+                // your code here (build up your url)
+                var url = "https://api.openweathermap.org/data/2.5/weather?q="+input+",us&units=imperial&appid=d34b94d018220b5737edb7b794e7a892";
+                console.log(url);
+                $.get(url, function(res) {
+                    $('form span').hide();
+                    // your code here
+                    console.log(res);
+                    var lon = res.coord.lon;
+                    var lat = res.coord.lat;
+                    var current_temp = res.main.temp;
+                    var current_weather = res.weather[0].main;
+                    var current_iconcode = res.weather[0].icon;
+                    var current_iconurl = "http://openweathermap.org/img/w/" + current_iconcode + ".png";
+                    console.log(current_iconurl);
+                    $('p span').html(current_temp+"˚F / "+current_weather);
+                    $('img').remove();
+                    $('p').append('<img src='+current_iconurl+'>');
+
+                    var url_2 = "https://api.openweathermap.org/data/2.5/onecall?lat="+lat+"&lon="+lon+"&units=imperial&appid=d34b94d018220b5737edb7b794e7a892";
+                    $.get(url_2, function(res_2) {
+                        console.log(res_2);
+                        for(var i=0; i<res_2.daily.length; i++) {
+                            var temp = res_2.daily[i].temp.day;
+                            var weather = res_2.daily[i].weather[0].main;
+                            $('#'+i+' span').remove();
+                            $('#'+i).append('<span></span>');
+                            $('#'+i+' span').html(temp+"˚F / "+weather);
+                            var iconcode = res_2.daily[i].weather[0].icon;
+                            var iconurl = "http://openweathermap.org/img/w/" + iconcode + ".png";
+                            // console.log(iconurl);
+                            $('#'+i).append('<img src='+iconurl+'>');
+                        }
+                    }, 'json');
+                }, 'json');
+                // don't forget to return false so the page doesn't refresh
+                return false;
+            });
+        });
+    </script>
+</head>
+<body>
+    <h1>My Weather App</h1>
+    <div class="container">
+        <form action="submit">
+            <input type="text" placeholder="type your city name">
+            <input type="submit" id="submit">
+            <span class="error">*check you typed!!</span>
+        </form>
+        <div class="info">
+            <p>Current: <span></span></p>
+            <ul>
+                <li id="0">Today: <span></span></li>
+                <li id="1">In 1 day: <span></span></li>
+                <li id="2">In 2 days: <span></span></li>
+                <li id="3">In 3 days: <span></span></li>
+                <li id="4">In 4 days: <span></span></li>
+                <li id="5">In 5 days: <span></span></li>
+                <li id="6">In 6 days: <span></span></li>
+                <li id="7">In 7 days: <span></span></li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

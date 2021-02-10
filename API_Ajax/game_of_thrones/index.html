@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>House of Thrones</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+        .container {
+            text-align: center;
+        }
+        img {
+            width: 150px;
+            height: 100px;
+            display: inline-block;
+            margin: 5px auto;
+        }
+        .house_details {
+            width: 410px;
+            height: auto;
+            margin: 20px auto;
+            border: 2px solid black;
+            padding: 20px;
+            position: relative;
+        }
+        .title_details {
+            position: absolute;
+            top: -13px;
+            left: 10px;
+            background-color: white;
+        }
+        /* .name, .words, .titles {
+            display: inline-block;
+            margin-right: 5px;
+        } */
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // console.log(res[0].name);
+            $(document).on("click", "img", function() {
+                $("span").remove();
+                $(".titles ul li").remove();
+                var id = $(this).prop("id");
+                $.get("https://anapioficeandfire.com/api/houses/"+id, function(res) {
+                    console.log(res);
+                    var html_name = "<span>"+res.name+"</span>";
+                    $(".name").append(html_name);
+                    var html_words = "<span>"+res.words+"</span>";
+                    $(".words").append(html_words);
+                    var html_titles = "";
+                    for(var i=0; i<res.titles.length; i++) {
+                        html_titles += "<li>"+res.titles[i]+"</li>";
+                    }
+                    $(".titles ul").append(html_titles);
+                    // console.log(res[i].words);
+                    // console.log(res[i].titles);
+                    // $.get("https://anapioficeandfire.com/api/houses/"+i+"/", function(res) {
+                        // }    
+                        // },"json");
+                    // }
+                }, "json");
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <img src="img/stark.jpg" alt="image_stark" id=362>
+        <img src="img/targaryen.jpg" alt="image_targaryen" id=378>
+        <img src="img/lannister.jpg" alt="image_lannister" id="229">
+        <img src="img/baratheon.png" alt="image_baratheon" id=17>
+    </div>
+    <div class="house_details">
+        <p class="title_details">House Details</p>
+        <ul>
+            <li class="name">Name: </li>
+            <li class="words">Words: </li>
+            <li class="titles">Titles: 
+                <ul>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>
