@@ -1,0 +1,71 @@
+takashi@Keis-Air ~ % cd /Users/takashi/Desktop/git_practice/basic_repo 
+takashi@Keis-Air basic_repo % mkdir packages
+takashi@Keis-Air basic_repo % touch secret.js
+takashi@Keis-Air basic_repo % touch ignore.txt
+takashi@Keis-Air basic_repo % touch secret.txt
+takashi@Keis-Air basic_repo % mkdir log-in
+takashi@Keis-Air basic_repo % touch log-in.js
+takashi@Keis-Air basic_repo % touch gitignore.txt
+takashi@Keis-Air basic_repo % git add.                             
+git: 'add.' is not a git command. See 'git --help'.
+
+The most similar command is
+	add
+takashi@Keis-Air basic_repo % git add .
+takashi@Keis-Air basic_repo % git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+	new file:   gitignore.txt
+	new file:   ignore.txt
+	new file:   log-in.js
+	new file:   secret.js
+	new file:   secret.txt
+
+takashi@Keis-Air basic_repo % git add .
+takashi@Keis-Air basic_repo % git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+	new file:   .gitignore.txt
+	new file:   ignore.txt
+	new file:   log-in.js
+	new file:   secret.js
+	new file:   secret.txt
+
+takashi@Keis-Air basic_repo % touch .gitignore
+takashi@Keis-Air basic_repo % git add . 
+takashi@Keis-Air basic_repo % git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+	new file:   .DS_Store
+	new file:   .gitignore
+	new file:   ignore.txt
+	new file:   log-in.js
+	new file:   secret.js
+	new file:   secret.txt
+
+takashi@Keis-Air basic_repo % git rm -r --cached .
+rm '.DS_Store'
+rm '.gitignore'
+rm 'ignore.txt'
+rm 'index.html'
+rm 'log-in.js'
+rm 'main.js'
+rm 'secret.js'
+rm 'secret.txt'
+rm 'styles.css'
+takashi@Keis-Air basic_repo % git add .
+takashi@Keis-Air basic_repo % git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+	new file:   .DS_Store
+	new file:   .gitignore
+
+takashi@Keis-Air basic_repo % cd ..               
+takashi@Keis-Air git_practice % cd ..
+takashi@Keis-Air Desktop % script gitignore_commands.txt
+Script started, output file is gitignore_commands.txt
+takashi@Keis-Air Desktop % 

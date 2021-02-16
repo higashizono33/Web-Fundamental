@@ -20,12 +20,14 @@ main {
 }
 
 #img_container {
+    width: 83%;
     background-color: white;
     border: 1px solid black;
     border-radius: 35px;
 }
 
 #info {
+    width: 20%;
     background-color: white;
     border: 1px solid black;
     border-radius: 35px;
